@@ -4,18 +4,19 @@ open Giraffe
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Hosting
 open Microsoft.Extensions.DependencyInjection
-
-// Import your handlers
 open Handlers
+open Handlers.TodoHandlers
+open Handlers.WeatherHandlers
+open Handlers.ImageHandlers
 
 let webApp =
     choose [
         GET >=> route "/" >=> text "GiraffeTodo is running!"
         subRoute "/api" (
             choose [
-                route "/todos" >=> TodoHandlers.getTodos
-                route "/weather" >=> WeatherHandlers.getWeather
-                route "/image" >=> ImageHandlers.getImage
+                route "/todos" >=> getTodos
+                route "/weather" >=> getWeather
+                route "/image" >=> getImage
             ]
         )
     ]

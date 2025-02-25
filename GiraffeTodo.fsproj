@@ -5,15 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Program.fs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Giraffe" Version="7.0.2" />
   </ItemGroup>
 
-  <Compile Include="Handlers.fs" />
-
-  
+  <ItemGroup>
+    <Compile Include="Handlers.fs" />
+    <Compile Include="TodoHandlers.fs" />
+    <Compile Include="WeatherHandlers.fs" />
+    <Compile Include="ImageHandlers.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
 
 </Project>
