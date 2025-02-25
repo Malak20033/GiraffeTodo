@@ -43,3 +43,4 @@ C:\Users\malak\code\cs510project1\GiraffeTodo\obj\Debug\net8.0\refint\GiraffeTod
 C:\Users\malak\code\cs510project1\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.pdb
 C:\Users\malak\code\cs510project1\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.genruntimeconfig.cache
 C:\Users\malak\code\cs510project1\GiraffeTodo\obj\Debug\net8.0\ref\GiraffeTodo.dll
+C:\Users\malak\code\cs510project1\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.sourcelink.json
