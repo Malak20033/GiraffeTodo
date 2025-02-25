@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("GiraffeTodo")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a24a72fc739af210adba093506f296c119b1fc6")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f5332dff51d2d4c6d6ee2c9c706086c3ff7b8f4")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("GiraffeTodo")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("GiraffeTodo")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]
