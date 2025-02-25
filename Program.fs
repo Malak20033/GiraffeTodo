@@ -39,6 +39,7 @@ let getImageUrl () : Task<string> =
     }
 
 // Email notification (simplified placeholder)
+//test
 let sendDailyEmail () =
     printfn "Sending email with todos, weather, and image..."
 
