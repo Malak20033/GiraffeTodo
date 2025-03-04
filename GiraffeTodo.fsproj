@@ -10,10 +10,11 @@
 
   <ItemGroup>
     <Compile Include="Handlers.fs" />
-    <Compile Include="TodoHandlers.fs" />
-    <Compile Include="WeatherHandlers.fs" />
-    <Compile Include="ImageHandlers.fs" />
+    <Compile Include="Models.fs" />
+    <Compile Include="Pages.html" />
     <Compile Include="Program.fs" />
+    <Compile Include="Properties.fs" />
+    <Compile Include="Routes.fs" />
   </ItemGroup>
 
 </Project>
