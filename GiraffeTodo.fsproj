@@ -8,7 +8,7 @@
     <PackageReference Include="Giraffe" Version="7.0.2" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup><Compile Include="Handlers\Handlers.fs" /><Compile Include="Models\Models.fs" /><Compile Include="Routes\Routes.fs" />
     <Compile Include="Handlers.fs" />
     <Compile Include="Models.fs" />
     <Compile Include="Pages.html" />
