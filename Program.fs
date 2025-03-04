@@ -1,37 +1,41 @@
-module Program
 
-open Giraffe
+
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Hosting
+open Microsoft.Extensions.Hosting
+open Microsoft.Extensions.Logging
 open Microsoft.Extensions.DependencyInjection
-open Handlers
-open Handlers.TodoHandlers
-open Handlers.WeatherHandlers
-open Handlers.ImageHandlers
+open Giraffe
+
+// open Routes
 
 let webApp =
     choose [
-        GET >=> route "/" >=> text "GiraffeTodo is running!"
-        subRoute "/api" (
-            choose [
-                route "/todos" >=> getTodos
-                route "/weather" >=> getWeather
-                route "/image" >=> getImage
-            ]
-        )
-    ]
+        route "/ping"   >=> text "pong"
+        route "/"       >=> text "Welcome TODO List" 
+        //        Routes.Routes
+]
 
-let configureApp (app: IApplicationBuilder) =
-    app.UseGiraffe webApp
 
-let configureServices (services: IServiceCollection) =
-    services.AddGiraffe() |> ignore
+type Startup() =
+    member __.ConfigureServices (services : IServiceCollection) =
+        // Register default Giraffe dependencies
+        services.AddGiraffe() |> ignore
+
+    member __.Configure (app : IApplicationBuilder)
+                        (env : IHostEnvironment)
+                        (loggerFactory : ILoggerFactory) =
+        // Add Giraffe to the ASP.NET Core pipeline
+        app.UseGiraffe webApp
 
 [<EntryPoint>]
-let main args =
-    let builder = WebApplication.CreateBuilder(args)
-    configureServices builder.Services
-    let app = builder.Build()
-    configureApp app
-    app.Run()
+let main _ =
+    Host.CreateDefaultBuilder()
+        .ConfigureWebHostDefaults(
+            fun webHostBuilder ->
+                webHostBuilder
+                    .UseStartup<Startup>()
+                    |> ignore)
+        .Build()
+        .Run()
     0
