@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "FSharp.Core/8.0.403": {
+      "FSharp.Core/9.0.201": {
         "type": "package",
         "compile": {
           "lib/netstandard2.1/FSharp.Core.dll": {
@@ -144,15 +144,15 @@
     }
   },
   "libraries": {
-    "FSharp.Core/8.0.403": {
-      "sha512": "ldNIn4IksrJL/X3rF4R/y9pa3RmwkcGYQ3xFMdbJj8dJ9Q49J735m6sMy3MbCK9gj3YoCsxlyFeExCiNDy3gHQ==",
+    "FSharp.Core/9.0.201": {
+      "sha512": "Ozq4T0ISTkqTYJ035XW/JkdDDaXofbykvfyVwkjLSqaDZ/4uNXfpf92cjcMI9lf9CxWqmlWHScViPh/4AvnWcw==",
       "type": "package",
-      "path": "fsharp.core/8.0.403",
+      "path": "fsharp.core/9.0.201",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "fsharp.core.8.0.403.nupkg.sha512",
+        "fsharp.core.9.0.201.nupkg.sha512",
         "fsharp.core.nuspec",
         "lib/netstandard2.0/FSharp.Core.dll",
         "lib/netstandard2.0/FSharp.Core.xml",
@@ -335,37 +335,30 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "FSharp.Core >= 8.0.403",
+      "FSharp.Core >= 9.0.201",
       "Giraffe >= 7.0.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\malak\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Malak\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\malak\\code\\cs510project1\\GiraffeTodo\\GiraffeTodo.fsproj",
+      "projectUniqueName": "C:\\Users\\Malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\GiraffeTodo.fsproj",
       "projectName": "GiraffeTodo",
-      "projectPath": "C:\\Users\\malak\\code\\cs510project1\\GiraffeTodo\\GiraffeTodo.fsproj",
-      "packagesPath": "C:\\Users\\malak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\malak\\code\\cs510project1\\GiraffeTodo\\obj\\",
+      "projectPath": "C:\\Users\\Malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\GiraffeTodo.fsproj",
+      "packagesPath": "C:\\Users\\Malak\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\malak\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Malak\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\8.0.405\\FSharp\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\9.0.200\\FSharp\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -378,7 +371,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -387,7 +381,7 @@
           "FSharp.Core": {
             "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
             "target": "Package",
-            "version": "[8.0.403, )",
+            "version": "[9.0.201, )",
             "generatePathProperty": true
           },
           "Giraffe": {
@@ -407,6 +401,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.13, 8.0.13]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.13, 8.0.13]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.13, 8.0.13]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.13, 8.0.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -415,7 +427,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.405/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

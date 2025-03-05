@@ -4,3 +4,15 @@ C:\Users\malak\code\cs510project1\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.Assem
 C:\Users\malak\code\cs510project1\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.fsproj.CoreCompileInputs.cache
 C:\Users\malak\code\cs510project1\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\malak\code\cs510project1\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.sourcelink.json
+C:\Users\malak\code\cs510project1\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.fsproj.AssemblyReference.cache
+C:\Users\malak\code\cs510project1\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.AssemblyInfoInputs.cache
+C:\Users\malak\code\cs510project1\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.AssemblyInfo.fs
+C:\Users\malak\code\cs510project1\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.fsproj.CoreCompileInputs.cache
+C:\Users\malak\code\cs510project1\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\malak\code\cs510project1\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.sourcelink.json
+C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.fsproj.AssemblyReference.cache
+C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.AssemblyInfoInputs.cache
+C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.AssemblyInfo.fs
+C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.fsproj.CoreCompileInputs.cache
+C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.sourcelink.json
