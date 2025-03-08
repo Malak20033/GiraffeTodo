@@ -1,4 +1,4 @@
-namespace MyApp.Models
+namespace Models
 
 module Todo = 
     type TodoItem = {

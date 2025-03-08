@@ -3,78 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        #todoList li {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
-        #todoList li.completed span {
-            text-decoration: line-through;
-        }
-    </style>
+    <title>Giraffe Todo</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>My Todo List</h1>
-    <input type="text" id="newTask" placeholder="Add a new task" />
-    <button id="addTaskBtn">Add Task</button>
-    <ul id="todoList">
-        <!-- Todo items will be dynamically inserted here -->
-    </ul>
-
-    <script>
-        const apiUrl = 'http://localhost:5000/api/todos';
-        
-        // Fetch all todos from the backend and display them
-        async function loadTodos() {
-            const response = await fetch(apiUrl);
-            const todos = await response.json();
-            const todoList = document.getElementById('todoList');
-            todoList.innerHTML = ''; // Clear current list
-            todos.forEach(todo => {
-                const li = document.createElement('li');
-                li.className = todo.IsCompleted ? 'completed' : '';
-                li.innerHTML = `
-                    <input type="checkbox" ${todo.IsCompleted ? 'checked' : ''} onclick="toggleCompletion(${todo.Id})" />
-                    <span>${todo.Task}</span>
-                `;
-                todoList.appendChild(li);
-            });
-        }
-
-        // Add a new Todo
-        async function addTodo() {
-            const newTaskInput = document.getElementById('newTask');
-            const newTask = newTaskInput.value;
-            if (newTask) {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ Id: Date.now(), Task: newTask, IsCompleted: false })
-                });
-                newTaskInput.value = '';
-                loadTodos(); // Reload Todo list
-            }
-        }
-
-        // Toggle completion status of a Todo item
-        async function toggleCompletion(id) {
-            const response = await fetch(`http://localhost:5000/api/todos/${id}`, {
-                method: 'PATCH',
-            });
-            loadTodos(); // Reload Todo list
-        }
-
-        // Event listeners
-        document.getElementById('addTaskBtn').addEventListener('click', addTodo);
-        loadTodos(); // Initial load of Todo items
-    </script>
+    <header>
+        <h1>Giraffe Todo</h1>
+    </header>
+    <main>
+        <section id="todo-list">
+            <h2>Todo List</h2>
+            <ul>
+                <li>Sample Task 1</li>
+                <li>Sample Task 2</li>
+                <li>Sample Task 333</li>
+            </ul>
+        </section>
+        <section id="add-todo">
+            <h2>Add a new task</h2>
+            <form>
+                <input type="text" id="new-task" placeholder="Enter new task">
+                <button type="submit">Add Task</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Giraffe Todo</p>
+    </footer>
 </body>
-</html>
+</html></section></html>

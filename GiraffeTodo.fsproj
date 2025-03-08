@@ -6,10 +6,10 @@
 
   <ItemGroup>
     <PackageReference Include="Giraffe" Version="7.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Properties\Properties.fs" />
     <Compile Include="Handlers\Handlers.fs" />
     <Compile Include="Routes\Routes.fs" />
     <Compile Include="Models\Models.fs" />

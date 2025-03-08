@@ -1,40 +1,43 @@
+namespace TodoController
 
-open Microsoft.AspNetCore.Builder
-open Microsoft.AspNetCore.Hosting
-open Microsoft.Extensions.Hosting
-open Microsoft.Extensions.Logging
-open Microsoft.Extensions.DependencyInjection
 open Giraffe
+open Microsoft.AspNetCore.Http
+open System.Collections.Generic
+open Models.Todo
 
-// open Routes
+module TodoModule =
 
-let webApp =
-    choose [
-        route "/ping"   >=> text "pong"
-        route "/"       >=> text "Welcome TODO List" 
-        //        Routes.Routes
-]
+    // Use the TodoItem type from Models.Todo
+    let mutable todos: TodoItem list = [
+        { Id = 1; Task = "Learn F#"; IsCompleted = false }
+        { Id = 2; Task = "Build a web app"; IsCompleted = false }
+    ]
 
+    let getAllTodos : HttpHandler =
+        fun next ctx ->
+            let jsonResponse = Newtonsoft.Json.JsonConvert.SerializeObject(todos)
+            Successful.OK jsonResponse next ctx
 
-type Startup() =
-    member __.ConfigureServices (services : IServiceCollection) =
-        // Register default Giraffe dependencies
-        services.AddGiraffe() |> ignore
+    let addTodo : HttpHandler =
+        fun next ctx ->
+            task {
+                let! newTodo = ctx.BindJsonAsync<TodoItem>()
+                todos <- todos @ [newTodo]
+                return! Successful.OK "Todo added" next ctx
+            }
 
-    member __.Configure (app : IApplicationBuilder)
-                        (env : IHostEnvironment)
-                        (loggerFactory : ILoggerFactory) =
-        // Add Giraffe to the ASP.NET Core pipeline
-        app.UseGiraffe webApp
+    let completeTodo : HttpHandler =
+        fun next ctx ->
+            task {
+                let! id = ctx.BindJsonAsync<int>()
+                todos <- todos |> List.map (fun t -> if t.Id = id then { t with IsCompleted = true } else t)
+                return! Successful.OK "Todo marked as completed" next ctx
+            }
 
-[<EntryPoint>]
-let main _ =
-    Host.CreateDefaultBuilder()
-        .ConfigureWebHostDefaults(
-            fun webHostBuilder ->
-                webHostBuilder
-                    .UseStartup<Startup>()
-                    |> ignore)
-        .Build()
-        .Run()
-    0
+    let deleteTodo : HttpHandler =
+        fun next ctx ->
+            task {
+                let! id = ctx.BindJsonAsync<int>()
+                todos <- todos |> List.filter (fun t -> t.Id <> id)
+                return! Successful.OK "Todo deleted" next ctx
+            }

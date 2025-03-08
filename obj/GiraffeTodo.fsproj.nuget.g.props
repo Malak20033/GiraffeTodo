@@ -13,6 +13,7 @@
     <SourceRoot Include="C:\Users\Malak\.nuget\packages\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Malak\.nuget\packages\newtonsoft.json\13.0.3</PkgNewtonsoft_Json>
     <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\Malak\.nuget\packages\fsharp.core\9.0.201</PkgFSharp_Core>
     <PkgGiraffe Condition=" '$(PkgGiraffe)' == '' ">C:\Users\Malak\.nuget\packages\giraffe\7.0.2</PkgGiraffe>
   </PropertyGroup>
