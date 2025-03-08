@@ -11,8 +11,8 @@
 
   <ItemGroup>
     <Compile Include="Handlers\Handlers.fs" />
-    <Compile Include="Routes\Routes.fs" />
-    <Compile Include="Models\Models.fs" />
+    <Compile Include="Routes\TodoRoutes.fs" />
+    
     <Compile Include="Program.fs" />
   </ItemGroup>
 

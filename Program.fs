@@ -1,43 +1,83 @@
-namespace TodoController
-
-open Giraffe
+open System
+open System.IO
+open Microsoft.AspNetCore.Builder
+open Microsoft.AspNetCore.Cors.Infrastructure
+open Microsoft.AspNetCore.Hosting
+open Microsoft.Extensions.Hosting
+open Microsoft.Extensions.Logging
 open Microsoft.AspNetCore.Http
-open System.Collections.Generic
-open Models.Todo
+open Microsoft.Extensions.DependencyInjection
+open Giraffe
+open Handlers
+open TodoRoutes
 
-module TodoModule =
-
-    // Use the TodoItem type from Models.Todo
-    let mutable todos: TodoItem list = [
-        { Id = 1; Task = "Learn F#"; IsCompleted = false }
-        { Id = 2; Task = "Build a web app"; IsCompleted = false }
+// ---------------------------------
+// WebApp module (Contains HttpHandler)
+// ---------------------------------
+module WebApp =
+    let webApp : HttpHandler = 
+        choose [
+            route "/ping" >=> text "pong"
+            route "/" >=> htmlFile "WebRoot/index.html"
+            TodoRoutes.routes
+            setStatusCode 404 >=> text "Not Found" 
     ]
+// ---------------------------------
+// Error handler
+// ---------------------------------
+    let errorHandler (ex : Exception) (logger : ILogger) =
+        logger.LogError(ex, "An unhandled exception has occurred while executing the request.")
+        clearResponse >=> setStatusCode 500 >=> text ex.Message
 
-    let getAllTodos : HttpHandler =
-        fun next ctx ->
-            let jsonResponse = Newtonsoft.Json.JsonConvert.SerializeObject(todos)
-            Successful.OK jsonResponse next ctx
+// ---------------------------------
+// Config and Main
+// ---------------------------------
 
-    let addTodo : HttpHandler =
-        fun next ctx ->
-            task {
-                let! newTodo = ctx.BindJsonAsync<TodoItem>()
-                todos <- todos @ [newTodo]
-                return! Successful.OK "Todo added" next ctx
-            }
+    let configureCors (builder : CorsPolicyBuilder) =
+        builder
+            .WithOrigins(
+                "http://localhost:5000",
+            "https://localhost:5001")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+        |> ignore
 
-    let completeTodo : HttpHandler =
-        fun next ctx ->
-            task {
-                let! id = ctx.BindJsonAsync<int>()
-                todos <- todos |> List.map (fun t -> if t.Id = id then { t with IsCompleted = true } else t)
-                return! Successful.OK "Todo marked as completed" next ctx
-            }
+    let configureApp (app : IApplicationBuilder) =
+        let env = app.ApplicationServices.GetService<IWebHostEnvironment>()
+        (match env.IsDevelopment() with
+        | true  ->
+        app.UseDeveloperExceptionPage()
+            .UseCors(configureCors)
+        | false ->
+            app.UseGiraffeErrorHandler(errorHandler)
+            .UseHttpsRedirection())
+            .UseCors(configureCors)
+            .UseStaticFiles()
+            .UseGiraffe(webApp)
 
-    let deleteTodo : HttpHandler =
-        fun next ctx ->
-            task {
-                let! id = ctx.BindJsonAsync<int>()
-                todos <- todos |> List.filter (fun t -> t.Id <> id)
-                return! Successful.OK "Todo deleted" next ctx
-            }
+    let configureServices (services : IServiceCollection) =
+        services.AddCors()     |> ignore
+        services.AddGiraffe()  |> ignore
+
+    let configureLogging (builder : ILoggingBuilder) =
+        builder.AddConsole()
+           .AddDebug() |> ignore
+
+[<EntryPoint>]
+let main args =
+    let contentRoot = Directory.GetCurrentDirectory()
+    let webRoot     = Path.Combine(contentRoot, "WebRoot")
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(
+            fun webHostBuilder ->
+                webHostBuilder
+                    .UseContentRoot(contentRoot)
+                    .UseWebRoot(webRoot)
+                    .Configure(Action<IApplicationBuilder> WebApp.configureApp)
+                    .ConfigureServices(WebApp.configureServices)
+                    .ConfigureLogging(WebApp.configureLogging)
+                    
+                    |> ignore)
+        .Build()
+        .Run()
+    0

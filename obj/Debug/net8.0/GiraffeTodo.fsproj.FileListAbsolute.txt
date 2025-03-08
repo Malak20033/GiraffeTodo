@@ -29,6 +29,7 @@ C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\FSharp.SystemTe
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\Giraffe.dll
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\Giraffe.ViewEngine.dll
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\cs\FSharp.Core.resources.dll
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\de\FSharp.Core.resources.dll
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\es\FSharp.Core.resources.dll
@@ -58,4 +59,3 @@ C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\refint\GiraffeT
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.pdb
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.genruntimeconfig.cache
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\ref\GiraffeTodo.dll
-C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\Newtonsoft.Json.dll

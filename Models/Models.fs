@@ -1,4 +1,4 @@
-namespace Models
+module Models
 
 module Todo = 
     type TodoItem = {

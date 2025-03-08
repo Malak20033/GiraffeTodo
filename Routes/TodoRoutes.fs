@@ -1,10 +1,10 @@
-namespace Routes
+module TodoRoutes 
 
 open Giraffe
-open Handlers.TodoHandler
+open Handlers
 
-module TodoRoutes =
-    let routes : HttpHandler=
+
+let routes : HttpHandler=
         choose [
             route "/todos" >=> choose [
                 GET >=> getTodos

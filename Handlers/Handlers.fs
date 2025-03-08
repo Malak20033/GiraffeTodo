@@ -1,4 +1,11 @@
-namespace Handlers
+module Handlers
+
+
+open System
+open Giraffe
+open Microsoft.AspNetCore.Http
+open System.Threading
+
 
 type Todo = {
     Id: int
@@ -7,27 +14,21 @@ type Todo = {
     Completed: bool
 }
 
-open Giraffe
-open Microsoft.AspNetCore.Http
-open System.Threading
+let mutable todos: Todo list = []
+let idCounter = ref 1
 
-module TodoHandler =
-
-    let mutable todos: Todo list = []
-    let idCounter = ref 1
-
-    let getTodos =
-        fun (next: HttpFunc) (ctx: HttpContext) ->
+let getTodos =
+    fun (next: HttpFunc) (ctx: HttpContext) ->
             json todos next ctx
 
-    let getTodoById (id: int) =
-        fun (next: HttpFunc) (ctx: HttpContext) ->
+let getTodoById (id: int) =
+    fun (next: HttpFunc) (ctx: HttpContext) ->
             match todos |> List.tryFind (fun t -> t.Id = id)  with
             | Some todo -> json todo next ctx
             | None -> RequestErrors.NOT_FOUND "Todo not found" next ctx
 
-    let addTodo =
-        fun (next: HttpFunc) (ctx: HttpContext) ->
+let addTodo =
+    fun (next: HttpFunc) (ctx: HttpContext) ->
             task {
                 let! newTodo = ctx.BindJsonAsync<Todo>()
                 let todo = { newTodo with Id = Interlocked.Increment(idCounter) }
@@ -35,8 +36,8 @@ module TodoHandler =
                 return! json todo next ctx
             }
 
-    let updateTodo (id: int) =
-        fun (next: HttpFunc) (ctx: HttpContext) ->
+let updateTodo (id: int) =
+    fun (next: HttpFunc) (ctx: HttpContext) ->
             task {
                 let! updatedTodo = ctx.BindJsonAsync<Todo>()
                 match todos |> List.tryFindIndex (fun t -> t.Id = id) with
@@ -50,8 +51,8 @@ module TodoHandler =
                     return! RequestErrors.NOT_FOUND "Todo not found" next ctx
             }
 
-    let deleteTodo (id: int) =
-        fun (next: HttpFunc) (ctx: HttpContext) ->
+let deleteTodo (id: int) =
+    fun (next: HttpFunc) (ctx: HttpContext) ->
             match List.tryFind (fun t -> t.Id = id) todos with
             | Some _ ->
                 todos <- List.filter (fun t -> t.Id <> id) todos  // ✅ Correctly removing from immutable list
