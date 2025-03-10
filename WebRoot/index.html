@@ -4,38 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giraffe Todo</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Giraffe Todo</h1>
-    </header>
-    <main>
-        <section id="todo-list">
-            <h2>Todo List</h2>
-            <ul>
-                <li>Sample Task 1</li>
-                <li>Sample Task 2</li>
-                <li>Sample Task 333</li>
-            </ul>
-        </section>
-        
-        <!-- Add image here -->
-        <section id="image-section">
-            <h2>Check out this image!</h2>
-            <img src="images/sample-image.jpg" alt="Sample Image" style="max-width: 100%; height: auto;">
-        </section>
+    <h1>Giraffe Todo</h1>
 
-        <section id="add-todo">
-            <h2>Add a new task</h2>
-            <form>
-                <input type="text" id="new-task" placeholder="Enter new task">
-                <button type="submit">Add Task</button>
-            </form>
-        </section>
-    </main>
+    <section id="todo-list">
+        <h2>Todo List</h2>
+        <ul id="todo-list-ul">
+            <!-- Todo items will be inserted here dynamically -->
+        </ul>
+    </section>
+
+    <section id="image-section">
+        <h2>Check out this image!</h2>
+        <img src="images/sample-image.jpg" alt="Sample Image" style="max-width: 100%; height: auto;">
+    </section>
+
+    <section id="add-todo">
+        <h2>Add a new task</h2>
+        <form id="add-todo-form">
+            <input type="text" id="new-task" placeholder="Enter new task">
+            <button type="submit">Add Task</button>
+        </form>
+    </section>
+
     <footer>
-        <p>&copy; 2023 Giraffe Todo</p>
+        <p>© 2025 Giraffe Todo</p>
     </footer>
+
+    <script>
+        async function fetchTodos() {
+            const response = await fetch("/api/todo");
+            const todos = await response.json();
+            const todoList = document.getElementById("todo-list-ul");
+            todoList.innerHTML = "";
+
+            todos.forEach(todo => {
+                const li = document.createElement("li");
+                li.textContent = todo.title;
+
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Delete";
+                deleteButton.onclick = async () => {
+                    await fetch(`/api/todo/${todo.id}`, {
+                        method: "DELETE"
+                    });
+                    fetchTodos();
+                };
+                li.appendChild(deleteButton);
+
+                todoList.appendChild(li);
+            });
+        }
+
+        document.getElementById("add-todo-form").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const input = document.getElementById("new-task");
+            const newTask = input.value.trim();
+            if (newTask) {
+                await fetch("/api/todo", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ title: newTask, description: "", completed: false })
+                });
+                input.value = "";
+                fetchTodos();
+            }
+        });
+
+        fetchTodos();
+    </script>
 </body>
 </html>

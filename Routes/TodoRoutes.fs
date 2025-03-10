@@ -1,18 +1,11 @@
-module TodoRoutes 
+module TodoRoutes
 
 open Giraffe
 open Handlers
 
-
-let routes : HttpHandler=
-        choose [
-            route "/todos" >=> choose [
-                GET >=> getTodos
-                POST >=> addTodo
-            ]
-            routef "/todos/%i" (fun id -> choose [
-                GET >=> getTodoById id
-                PUT >=> updateTodo id
-                DELETE >=> deleteTodo id
-            ])
-        ]
+let routes: HttpHandler =
+    choose [
+        GET >=> route "/api/todo" >=> getTodos
+        POST >=> route "/api/todo" >=> addTodo
+        routef "/api/todo/%i" deleteTodo >=> DELETE
+    ]

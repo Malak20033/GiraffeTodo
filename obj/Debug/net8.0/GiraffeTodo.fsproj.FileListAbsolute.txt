@@ -18,7 +18,6 @@ C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.Mvc
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\GiraffeTodo.sourcelink.json
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\appsettings.json
-C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\GiraffeTodo.staticwebassets.endpoints.json
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\GiraffeTodo.exe
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\GiraffeTodo.deps.json
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\GiraffeTodo.runtimeconfig.json
@@ -46,9 +45,7 @@ C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\bin\Debug\net8.0\zh-Hant\FSharp.
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\scopedcss\bundle\GiraffeTodo.styles.css
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\staticwebassets\msbuild.GiraffeTodo.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\staticwebassets\msbuild.GiraffeTodo.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\staticwebassets\msbuild.build.GiraffeTodo.props
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GiraffeTodo.props
 C:\Users\Malak\OneDrive\GiraffeTodo\GiraffeTodo\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GiraffeTodo.props
