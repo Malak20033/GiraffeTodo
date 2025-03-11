@@ -11,7 +11,11 @@ type Todo = {
     Completed: bool
 }
 
-let mutable todos: Todo list = []
+let mutable todos: Todo list = [
+    { Id = 1; Title = "Learn F#"; Completed = false }
+    { Id = 2; Title = "Build a Todo app"; Completed = false }
+    { Id = 3; Title = "Check emails"; Completed = true }
+]
 let idCounter = ref 1
 
 let getTodos =

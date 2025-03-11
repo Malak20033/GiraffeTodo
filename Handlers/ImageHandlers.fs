@@ -7,7 +7,7 @@ open Giraffe
 Env.Load() |> ignore // Ensure .env file is loaded
 let apiKey = Env.GetString "PEXELS_API_KEY"  // Use `Env.get` instead of `Env.GetString`
 
-let pexelsPhotoId = "1183434"
+let pexelsPhotoId = "208984"
 
 // Function to get the image URL from Pexels API
 let getPexelsImageUrl () =

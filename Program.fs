@@ -18,17 +18,14 @@ open TodoRoutes
 // ---------------------------------
 module WebApp =
 
-    let webApp =
+    let webApp : HttpHandler = 
         choose [
-        GET >=>
-            choose [
-                route "/" >=> htmlFile "WebRoot/index.html"
-                TodoRoutes.routes
-                route "/api/weather" >=> WeatherHandler.weatherHandler
-                route "/api/image" >=> ImageHandler.getImageUrlHandler
-
-            ]
-        setStatusCode 404 >=> text "Not Found" ]
+            route "/" >=> htmlFile "WebRoot/index.html"
+            TodoRoutes.routes
+            route "/api/weather" >=> WeatherHandler.weatherHandler
+            route "/api/image" >=> ImageHandler.getImageUrlHandler
+            setStatusCode 404 >=> text "Not Found" 
+    ]
 // ---------------------------------
 // Error handler
 // ---------------------------------
@@ -74,6 +71,9 @@ module WebApp =
 let main args =
     let contentRoot = Directory.GetCurrentDirectory()
     let webRoot     = Path.Combine(contentRoot, "WebRoot")
+
+    EmailHandler.scheduleDailyEmail() |> ignore
+
     Host.CreateDefaultBuilder(args)
         .ConfigureWebHostDefaults(
             fun webHostBuilder ->

@@ -16,6 +16,7 @@
     <Compile Include="Routes\TodoRoutes.fs" />
     <Compile Include="Handlers\ImageHandlers.fs" />
     <Compile Include="Handlers\WeatherHandler.fs" />
+    <Compile Include="Handlers\EmailHandler.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

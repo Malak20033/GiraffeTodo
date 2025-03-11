@@ -40,10 +40,14 @@
         </ul>
     </section>
 
-    <section id="image-section">
-        <h2>Check out this image!</h2>
-        <!-- The image will be inserted here dynamically -->
-    </section>
+    <h1>Weather Data</h1>
+    <div id="weather-info">
+        <p>Loading weather data...</p>
+    </div>
+
+    <div id="image-container">
+        <p>Loading image...</p>
+    </div>
 
     <section id="add-todo">
         <h2>Add a new task</h2>
@@ -116,6 +120,50 @@
         // Initialize the page
         fetchTodos();
         fetchImage();
+
+         // Function to fetch weather data from the API
+         async function fetchWeather() {
+            try {
+                const response = await fetch('/api/weather');
+                const data = await response.json();
+                
+                if (data.currentTemperature) {
+                    document.getElementById('weather-info').innerHTML = 
+                        `<p>Current Temperature: ${data.currentTemperature}°F</p>`;
+                } else if (data.error) {
+                    document.getElementById('weather-info').innerHTML = 
+                        `<p>Error: ${data.error}</p>`;
+                }
+            } catch (error) {
+                document.getElementById('weather-info').innerHTML = 
+                    `<p>Failed to fetch weather data. Error: ${error.message}</p>`;
+            }
+        }
+
+        // Function to fetch image data
+        async function fetchImage() {
+            try {
+                const response = await fetch('/api/image');
+                const data = await response.json();
+
+                if (data.imageUrl) {
+                    document.getElementById('image-container').innerHTML = 
+                        `<img src="${data.imageUrl}" alt="Image" style="max-width: 100%; height: auto;" />`;
+                } else if (data.error) {
+                    document.getElementById('image-container').innerHTML = 
+                        `<p>Error: ${data.error}</p>`;
+                }
+            } catch (error) {
+                document.getElementById('image-container').innerHTML = 
+                    `<p>Failed to fetch image. Error: ${error.message}</p>`;
+            }
+        }
+
+        // Call the fetchWeather and fetchImage functions when the page loads
+        window.onload = async () => {
+            await fetchWeather();
+            await fetchImage();
+        };
     </script>
 </body>
 </html>
