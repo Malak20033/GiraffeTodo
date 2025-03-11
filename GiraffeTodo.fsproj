@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNetEnv" Version="3.1.1" />
+    <PackageReference Include="FSharp.Data" Version="6.4.1" />
     <PackageReference Include="Giraffe" Version="7.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
@@ -12,7 +14,8 @@
   <ItemGroup>
     <Compile Include="Handlers\Handlers.fs" />
     <Compile Include="Routes\TodoRoutes.fs" />
-    
+    <Compile Include="Handlers\ImageHandlers.fs" />
+    <Compile Include="Handlers\WeatherHandler.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

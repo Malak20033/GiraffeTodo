@@ -1,32 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\GiraffeTodo.fsproj": {}
+    "C:\\Users\\Malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\GiraffeTodo.fsproj": {}
   },
   "projects": {
-    "C:\\Users\\malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\GiraffeTodo.fsproj": {
+    "C:\\Users\\Malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\GiraffeTodo.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\GiraffeTodo.fsproj",
+        "projectUniqueName": "C:\\Users\\Malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\GiraffeTodo.fsproj",
         "projectName": "GiraffeTodo",
-        "projectPath": "C:\\Users\\malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\GiraffeTodo.fsproj",
-        "packagesPath": "C:\\Users\\malak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\obj\\",
+        "projectPath": "C:\\Users\\Malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\GiraffeTodo.fsproj",
+        "packagesPath": "C:\\Users\\Malak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\malak\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Malak\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\8.0.405\\FSharp\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\9.0.200\\FSharp\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,16 +33,27 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.1.1, )",
+              "generatePathProperty": true
+            },
             "FSharp.Core": {
               "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[8.0.403, )",
+              "version": "[9.0.201, )",
+              "generatePathProperty": true
+            },
+            "FSharp.Data": {
+              "target": "Package",
+              "version": "[6.4.1, )",
               "generatePathProperty": true
             },
             "Giraffe": {
@@ -81,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.405/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

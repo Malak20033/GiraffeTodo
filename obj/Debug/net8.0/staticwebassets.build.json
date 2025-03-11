@@ -1,11 +1,20 @@
 {
   "Version": 1,
-  "Hash": "qaeI6AymEyS/1MBvFIXUpN5i/H4U/FyWPsSb+YlCSEg=",
+  "Hash": "PnCtO2gzHdou9ckdiIK6BDAsZ8he4S/L8SCm9s37JY0=",
   "Source": "GiraffeTodo",
   "BasePath": "_content/GiraffeTodo",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "GiraffeTodo\\wwwroot",
+      "Source": "GiraffeTodo",
+      "ContentRoot": "C:\\Users\\Malak\\OneDrive\\GiraffeTodo\\GiraffeTodo\\wwwroot\\",
+      "BasePath": "_content/GiraffeTodo",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [],
+  "Endpoints": []
 }
